@@ -39,7 +39,7 @@ public class RegistrationService {
 		} finally {
 			SessionInfo.closeSession(session);
 		}
-		return ResponseUtils.sendResponse(200, "Registration successful");
+		return ResponseUtils.sendResponse(200, "Registered successfully");
 	}
 	
 }
