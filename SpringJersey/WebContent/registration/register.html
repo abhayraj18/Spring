@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration</title>
+<link rel="stylesheet" type="text/css" href="../css/login.css">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+<body data-ng-app="registrationApp" data-ng-controller="registrationController">
+
+<h2 style="text-decoration: underline">Registration Form</h2>
+<table>
+	<tr>
+		<td width=5%><b>Name*:</b></td>
+		<td width=95%><input type="text" placeholder="Enter Name" data-ng-model="name"></td>
+	</tr>
+	<tr>
+		<td width=5%><b>UserName*:</b></td>
+		<td width=95%><input type="text" placeholder="Enter Username" data-ng-model="username"></td>
+	</tr>
+	<tr>
+		<td width=5%><b>Password*:</b></td>
+		<td width=95%><input type="password" placeholder="Enter Password" data-ng-model="password"></td>
+	</tr>
+	<tr>
+		<td width=5%><b>Email*:</b></td>
+		<td width=95%><input type="text" placeholder="Enter Email Id" data-ng-model="email"></td>
+	</tr>
+	<tr>
+		<td width=5%><b>Phone:</b></td>
+		<td width=95%><input type="text" placeholder="Enter Phone Number" data-ng-model="phone"></td>
+	</tr>
+	<tr>
+		<td width=5%><b>Country:</b></td>
+		<td width=95%><input type="text" placeholder="Enter Country" data-ng-model="country"></td>
+	</tr>
+	<tr>
+		<td width=5%><b>Link:</b></td>
+		<td width=95%><input type="text" placeholder="Enter Link" data-ng-model="link"></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td style="align:center;width:100%;text-align:center">
+			<button type="submit" data-ng-click="register()">Submit</button>
+		</td>
+	</tr>
+</table>
+</body>
+<script src="register.js"></script>
+</html>

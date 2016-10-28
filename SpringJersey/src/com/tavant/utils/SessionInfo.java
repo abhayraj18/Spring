@@ -25,6 +25,11 @@ public class SessionInfo {
 		return getSessionFactory().openSession();
 	}
 	
+	public static void closeSession(Session session) {
+		if(session != null)
+			session.close();
+	}
+	
 	public static void main(String[] args) {
 		@SuppressWarnings("resource")
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
@@ -45,5 +50,5 @@ public class SessionInfo {
 		cfg.setProperties(properties);
 		System.out.println(cfg.buildSessionFactory().openSession().createQuery("From User").getResultList());*/
 	}
-	
+
 }

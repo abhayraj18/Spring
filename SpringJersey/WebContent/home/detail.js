@@ -1,5 +1,5 @@
-var loginApp = angular.module("loginApp", []);
-loginApp.controller("loginController", function($scope, $http, $window){
+var loginApp = angular.module("myPageApp", []);
+loginApp.controller("myPageController", function($scope, $http, $window){
 	
 	$scope.checkIfEnterKeyWasPressed = function(event){
 	    if (event.charCode == 13)
@@ -22,7 +22,7 @@ loginApp.controller("loginController", function($scope, $http, $window){
 		
 		var req = {
 				 method: 'POST',
-				 url: '../rest/login/do-login',
+				 url: '../spring-rest/login/doLogin',
 				 /* headers: {
 				   'Content-Type': 'application/json'
 				 }, */
@@ -30,10 +30,10 @@ loginApp.controller("loginController", function($scope, $http, $window){
 			}
 		
 		$http(req).success(function(data, status, headers, config) {
-			$scope.message = data;
-			alert(data);
+			$scope.message = data.message;
+			alert(data.message);
 		}).error(function(data, status, headers, config) {
-			alert(data);
+			alert(data.message);
 		});
 	}
 	
