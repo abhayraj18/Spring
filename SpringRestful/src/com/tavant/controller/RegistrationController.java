@@ -43,7 +43,7 @@ public class RegistrationController {
 			SessionInfo.closeSession(session);
 		}
 		JSONObject json = new JSONObject();
-		json.put("message", "Registration successful");
+		json.put("message", "Registered successfully");
 		return json.toString();
 	}
 	
