@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.3.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+    
+    <context:property-placeholder location="classpath:database.properties"/>
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<!-- destroy-method="close"> -->
+
+		<property name="driverClassName" value="${database.driver}"></property>
+		<property name="url" value="${database.url}"></property>
+		<property name="username" value="${database.username}"></property>
+		<property name="password" value="${database.password}"></property>
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingResources">
+			<list>
+				<value>schema.hbm.xml</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+		    <props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.connection.pool_size">${hibernate.connection.pool_size}</prop>
+				<prop key="hibernate.c3p0.timeout">${hibernate.c3p0.timeout}</prop>
+				<prop key="hibernate.c3p0.min_size">${hibernate.c3p0.min_size}</prop>
+				<prop key="hibernate.c3p0.max_size">${hibernate.c3p0.max_size}</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+		    </props>
+		</property>
+	</bean>
+	
+	<!-- The transaction manager -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	<bean id="transactionManager"
+	    class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+	    <property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="sessionInfo" class="com.tavant.utils.SessionInfo">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- <bean id="loginDao" class="com.tavant.dao.LoginDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean id="loginController" class="com.tavant.controller.LoginController"/>
+	
+	<bean id="registrationDao" class="com.tavant.dao.RegistrationDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="userDao" class="com.tavant.dao.UserDAO">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean> -->
+</beans>
