@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.tavant.model.User" table="user">
+        <id name="id" type="int" column="id">
+            <generator class="native" />
+        </id>
+        <property name="name" type="string" column="name" length="56" not-null="true" />
+        <property name="email" type="string" column="email" length="56" not-null="true" />
+        <property name="phone" type="string" column="phone" length="15" not-null="false" />
+        <property name="userName" type="string" column="username" length="56" not-null="true" />
+        <property name="password" type="string" column="password" length="112" not-null="true" />
+        <property name="link" type="string" column="link" length="512" not-null="false" />
+        <property name="country" type="string" column="country" length="512" not-null="false" />
+    </class>
+    
+    <class name="com.tavant.model.Role" table="role">
+        <id name="id" type="int" column="id">
+            <generator class="native" />
+        </id>
+        <property name="name" type="string" column="name" length="112" not-null="true" />
+        <property name="description" type="string" column="description" length="256" not-null="false" />
+    </class>
+    
+    <class name="com.tavant.model.UserRole" table="user_role">
+        <id name="id" type="int" column="id">
+            <generator class="native" />
+        </id>
+        <many-to-one name="user" class="com.tavant.model.User" column="user_id" not-null="true"/>
+        <many-to-one name="role" class="com.tavant.model.Role" column="role_id" not-null="true"/>
+    </class>
+    
+</hibernate-mapping>

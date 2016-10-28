@@ -1,0 +1,7 @@
+{
+	"properties": { 
+    	"Title":    { "type": "string"  }, 
+    	"Content":  { "type": "string"  },
+    	"Attachment Content":{"type": "attachment"}
+	}
+}
