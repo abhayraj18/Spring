@@ -48,20 +48,20 @@
 	    <property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
-	<bean id="sessionInfo" class="com.tavant.utils.SessionInfo">
+	<bean id="sessionInfo" class="com.spring.utils.SessionInfo">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
-	<!-- <bean id="loginDao" class="com.tavant.dao.LoginDAO">
+	<!-- <bean id="loginDao" class="com.spring.dao.LoginDAO">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	<bean id="loginController" class="com.tavant.controller.LoginController"/>
+	<bean id="loginController" class="com.spring.controller.LoginController"/>
 	
-	<bean id="registrationDao" class="com.tavant.dao.RegistrationDAO">
+	<bean id="registrationDao" class="com.spring.dao.RegistrationDAO">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	
-	<bean id="userDao" class="com.tavant.dao.UserDAO">
+	<bean id="userDao" class="com.spring.dao.UserDAO">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean> -->
 </beans>

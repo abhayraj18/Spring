@@ -1,4 +1,4 @@
-package com.tavant.rest.services;
+package com.spring.rest.services;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -10,10 +10,10 @@ import javax.ws.rs.core.Response;
 import org.hibernate.Session;
 import org.springframework.stereotype.Controller;
 
-import com.tavant.dao.RegistrationDAO;
-import com.tavant.model.User;
-import com.tavant.utils.ResponseUtils;
-import com.tavant.utils.SessionInfo;
+import com.spring.dao.RegistrationDAO;
+import com.spring.model.User;
+import com.spring.utils.ResponseUtils;
+import com.spring.utils.SessionInfo;
 
 @Controller
 @Path("/register")

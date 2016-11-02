@@ -1,4 +1,4 @@
-package com.tavant.rest.services;
+package com.spring.rest.services;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -11,10 +11,10 @@ import org.hibernate.Session;
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Component;
 
-import com.tavant.dao.LoginDAO;
-import com.tavant.pojo.LoginInfo;
-import com.tavant.utils.ResponseUtils;
-import com.tavant.utils.SessionInfo;
+import com.spring.dao.LoginDAO;
+import com.spring.pojo.LoginInfo;
+import com.spring.utils.ResponseUtils;
+import com.spring.utils.SessionInfo;
 
 @Component
 @Path("/login")

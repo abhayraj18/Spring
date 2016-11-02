@@ -1,4 +1,4 @@
-package com.tavant.model;
+package com.spring.model;
 
 public class Role {
 	private int id;

@@ -1,4 +1,4 @@
-package com.tavant.utils;
+package com.spring.utils;
 
 import javax.ws.rs.core.Response;
 

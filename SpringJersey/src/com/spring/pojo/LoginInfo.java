@@ -1,4 +1,4 @@
-package com.tavant.pojo;
+package com.spring.pojo;
 
 public class LoginInfo {
 
