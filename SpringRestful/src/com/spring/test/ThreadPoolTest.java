@@ -1,4 +1,4 @@
-package com.tavant.test;
+package com.spring.test;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import com.google.gson.Gson;
-import com.tavant.model.User;
+import com.spring.model.User;
 
 public class ThreadPoolTest implements Callable<User> {
 

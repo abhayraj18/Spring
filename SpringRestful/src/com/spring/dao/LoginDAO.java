@@ -1,16 +1,15 @@
-package com.tavant.utils;
+package com.spring.dao;
 
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.hibernate.query.Query;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.spring.pojo.LoginInfo;
+
 @Transactional
-public class SessionInfo {
+public class LoginDAO {
 	
-	@Autowired
+	/*@Autowired
 	SessionFactory sessionFactory;
 
 	public SessionFactory getSessionFactory() {
@@ -21,21 +20,26 @@ public class SessionInfo {
 		this.sessionFactory = sessionFactory;
 	}
 	
-	public Session getSession() {
-		return getSessionFactory().openSession();
-	}
+	private Session getSession() {
+		return getSessionFactory().getCurrentSession();
+	}*/
 	
-	public static void closeSession(Session session) {
-		if(session != null)
-			session.close();
+	public static boolean authenticateUser(Session session, LoginInfo loginInfo) {
+		String query = "From User where userName=? and password=?";
+		Query<?> q = session.createQuery(query);
+		q.setParameter(0, loginInfo.getUserName());
+		q.setParameter(1, loginInfo.getPassword());
+		if(q.getResultList().isEmpty())
+			return false;
+		return true;
 	}
 	
 	public static void main(String[] args) {
-		@SuppressWarnings("resource")
+		/*@SuppressWarnings("resource")
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-		SessionInfo dao = context.getBean(SessionInfo.class);
+		LoginDAO dao = context.getBean(LoginDAO.class);
 		Session session = dao.getSessionFactory().openSession();
-		session.close();
+		session.close();*/
 		/*Configuration cfg = new Configuration();
 		Properties properties = new Properties();
 		try {
@@ -50,5 +54,5 @@ public class SessionInfo {
 		cfg.setProperties(properties);
 		System.out.println(cfg.buildSessionFactory().openSession().createQuery("From User").getResultList());*/
 	}
-
+	
 }

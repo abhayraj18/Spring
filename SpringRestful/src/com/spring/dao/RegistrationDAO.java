@@ -1,10 +1,10 @@
-package com.tavant.dao;
+package com.spring.dao;
 
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.tavant.model.User;
+import com.spring.model.User;
 
 @Transactional
 public class RegistrationDAO {

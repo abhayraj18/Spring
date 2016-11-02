@@ -1,4 +1,4 @@
-package com.tavant.controller;
+package com.spring.controller;
 
 import org.hibernate.Session;
 import org.json.simple.JSONObject;
@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.tavant.dao.RegistrationDAO;
-import com.tavant.errorhandling.ErrorHandler;
-import com.tavant.model.User;
-import com.tavant.utils.SessionInfo;
+import com.spring.dao.RegistrationDAO;
+import com.spring.errorhandling.ErrorHandler;
+import com.spring.model.User;
+import com.spring.utils.SessionInfo;
 
 @Controller
 @RequestMapping("/register")

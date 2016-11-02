@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.tavant.model.User" table="user">
+    <class name="com.spring.model.User" table="user">
         <id name="id" type="int" column="id">
             <generator class="native" />
         </id>
@@ -15,7 +15,7 @@
         <property name="country" type="string" column="country" length="512" not-null="false" />
     </class>
     
-    <class name="com.tavant.model.Role" table="role">
+    <class name="com.spring.model.Role" table="role">
         <id name="id" type="int" column="id">
             <generator class="native" />
         </id>
@@ -23,12 +23,12 @@
         <property name="description" type="string" column="description" length="256" not-null="false" />
     </class>
     
-    <class name="com.tavant.model.UserRole" table="user_role">
+    <class name="com.spring.model.UserRole" table="user_role">
         <id name="id" type="int" column="id">
             <generator class="native" />
         </id>
-        <many-to-one name="user" class="com.tavant.model.User" column="user_id" not-null="true"/>
-        <many-to-one name="role" class="com.tavant.model.Role" column="role_id" not-null="true"/>
+        <many-to-one name="user" class="com.spring.model.User" column="user_id" not-null="true"/>
+        <many-to-one name="role" class="com.spring.model.Role" column="role_id" not-null="true"/>
     </class>
     
 </hibernate-mapping>

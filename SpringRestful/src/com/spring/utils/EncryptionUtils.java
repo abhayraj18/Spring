@@ -1,4 +1,4 @@
-package com.tavant.utils;
+package com.spring.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

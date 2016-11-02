@@ -1,4 +1,4 @@
-package com.tavant.errorhandling;
+package com.spring.errorhandling;
 
 public class ErrorHandler extends Exception {
 

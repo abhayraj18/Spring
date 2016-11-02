@@ -1,4 +1,4 @@
-package com.tavant.controller;
+package com.spring.controller;
 
 import java.io.IOException;
 
@@ -21,10 +21,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
-import com.tavant.dao.LoginDAO;
-import com.tavant.errorhandling.ErrorHandler;
-import com.tavant.pojo.LoginInfo;
-import com.tavant.utils.SessionInfo;
+import com.spring.dao.LoginDAO;
+import com.spring.errorhandling.ErrorHandler;
+import com.spring.pojo.LoginInfo;
+import com.spring.utils.SessionInfo;
 
 @RestController
 @RequestMapping("/login")

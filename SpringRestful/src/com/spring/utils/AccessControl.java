@@ -1,4 +1,4 @@
-package com.tavant.utils;
+package com.spring.utils;
 
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;

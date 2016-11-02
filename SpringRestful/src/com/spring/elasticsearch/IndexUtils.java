@@ -1,4 +1,4 @@
-package com.test.elasticsearch;
+package com.spring.elasticsearch;
 
 import java.io.File;
 import java.io.IOException;

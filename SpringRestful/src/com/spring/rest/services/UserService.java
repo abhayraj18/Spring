@@ -1,4 +1,4 @@
-package com.tavant.rest.services;
+package com.spring.rest.services;
 
 import java.io.IOException;
 
@@ -19,10 +19,10 @@ import org.hibernate.Session;
 import org.springframework.stereotype.Component;
 
 import com.google.gson.Gson;
-import com.tavant.dao.UserDAO;
-import com.tavant.model.User;
-import com.tavant.utils.ResponseUtils;
-import com.tavant.utils.SessionInfo;
+import com.spring.dao.UserDAO;
+import com.spring.model.User;
+import com.spring.utils.ResponseUtils;
+import com.spring.utils.SessionInfo;
 
 @Component
 @Path("/user")

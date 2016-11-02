@@ -1,4 +1,4 @@
-package com.tavant.errorhandling;
+package com.spring.errorhandling;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

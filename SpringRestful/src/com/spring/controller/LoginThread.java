@@ -1,4 +1,4 @@
-package com.tavant.controller;
+package com.spring.controller;
 
 import java.io.IOException;
 
@@ -10,7 +10,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 
 import com.google.gson.Gson;
-import com.tavant.pojo.LoginInfo;
+import com.spring.pojo.LoginInfo;
 
 public class LoginThread implements Runnable {
 
