@@ -39,6 +39,12 @@ public class ThreadPoolTest implements Callable<User> {
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void main(String[] args) {
+		String s1 = "";
+		if(s1.equals(null))
+			System.out.println("hello");
+		else
+			System.out.println("Hi");
+		
 		initThreadpool();
 		//ExecutorService executorService = Executors.newFixedThreadPool(10);
 		List<Future<User>> futureList = new ArrayList<Future<User>>();
