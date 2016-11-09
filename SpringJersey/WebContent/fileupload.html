@@ -1,15 +1,76 @@
+<!DOCTYPE html>
 <html>
-<body>
-	<h1>File Upload with Jersey</h1>
+<head>
+  <title>AngularJS File Upoad Example with $http and FormData</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+</head>
 
-	<form action="rest/file/upload" method="post" enctype="multipart/form-data">
+<body data-ng-app="fupApp">
+    <div data-ng-controller="fupController">
 
-	   <p>
-		Select a file : <input type="file" name="file" size="45" />
-	   </p>
+	<table>
+		<tr>
+		<td width=5%><b>UserName</b></td>
+		<td width=95%><input type="text" placeholder="Enter Username" data-ng-model="username" data-ng-keypress="checkIfEnterKeyWasPressed($event)"></td>
+	</tr>
+	<tr>
+		<td width=5%><b>Password</b></td>
+		<td width=95%><input type="password" placeholder="Enter Password" data-ng-model="password" data-ng-keypress="checkIfEnterKeyWasPressed($event)"></td>
+	</tr>
+	</table>
+        Select File : <input type="file" id="file1" name="file" data-ng-files="getTheFiles($files)" />
 
-	   <input type="submit" value="Upload It" />
-	</form>
-
+        <input type="button" data-ng-click="uploadFiles()" value="Upload" />
+    </div>
 </body>
+
+<script>
+    angular.module('fupApp', [])
+        .directive('ngFiles', ['$parse', function ($parse) {
+
+            function fn_link(scope, element, attrs) {
+                var onChange = $parse(attrs.ngFiles);
+                element.on('change', function (event) {
+                    onChange(scope, { $files: event.target.files });
+                });
+            };
+
+            return {
+                link: fn_link
+            }
+        } ])
+        .controller('fupController', function ($scope, $http) {
+
+            var formdata = new FormData();
+            $scope.getTheFiles = function ($files) {
+                angular.forEach($files, function (value, key) {
+                    formdata.append("file", value);
+                });
+            };
+
+            // NOW UPLOAD THE FILES.
+            $scope.uploadFiles = function () {
+			var dataObj = {};
+			dataObj["userName"] = $scope.username;
+			//dataObj["password"]= $scope.password;
+			formdata.append("emp", angular.toJson(dataObj));
+                var request = {
+                    method: 'POST',
+                    url: 'rest/file/upload',
+                    data: formdata,
+                    headers: {
+                        'Content-Type': undefined
+                    }
+                };
+				
+                // SEND THE FILES.
+                $http(request)
+                    .success(function (d) {
+                        alert(d);
+                    })
+                    .error(function () {
+                    });
+            }
+        });
+</script>
 </html>

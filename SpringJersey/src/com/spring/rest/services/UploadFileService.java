@@ -15,25 +15,30 @@ import javax.ws.rs.core.Response;
 import org.glassfish.jersey.media.multipart.FormDataContentDisposition;
 import org.glassfish.jersey.media.multipart.FormDataParam;
 
+import com.google.gson.Gson;
+import com.spring.pojo.LoginInfo;
+
 @Path("/file")
 public class UploadFileService {
 
 	@POST
 	@Path("/upload")
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
-	public Response uploadFile(
+	public Response uploadFile(@FormDataParam("emp") String user,
 		@FormDataParam("file") InputStream uploadedInputStream,
 		@FormDataParam("file") FormDataContentDisposition fileDetail) {
 
+		System.out.println(user);
+		LoginInfo info = new Gson().fromJson(user, LoginInfo.class);
+		System.out.println(info.getUserName());
 		String uploadedFileLocation = "C:\\Users\\abhay.jain\\Desktop\\Abhay1\\" + fileDetail.getFileName();
-
+		System.out.println(fileDetail.getParameters());
 		// save it
 		writeToFile(uploadedInputStream, uploadedFileLocation);
 
 		String output = "File uploaded to : " + uploadedFileLocation;
 
 		return Response.status(200).entity(output).build();
-
 	}
 
 	// save uploaded file to new location
@@ -56,7 +61,6 @@ public class UploadFileService {
 
 			e.printStackTrace();
 		}
-
 	}
-
+	
 }
