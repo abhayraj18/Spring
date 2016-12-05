@@ -3,7 +3,9 @@ package com.spring.utils;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,6 +46,18 @@ public class EmailUtils {
         ve.evaluate(context, writer, "", FileUtils.readFileToString(new File("C:\\Users\\abhay.jain\\git\\SpringRestful\\EmailTemplates\\test.tpl"), "UTF-8")); 
         
         System.out.println( writer.toString() );
+        
+        Calendar date = Calendar.getInstance();
+        date.set(Calendar.AM_PM, Calendar.AM);
+		while (date.get(Calendar.DAY_OF_WEEK) != Calendar.SATURDAY) {
+		    date.add(Calendar.DATE, 1);
+		}
+		date.set(Calendar.HOUR, 11);
+		date.set(Calendar.MINUTE, 0);
+		date.set(Calendar.SECOND, 0);
+		SimpleDateFormat sdf = new SimpleDateFormat("E dd/MM/yyyy, hh:mm a");
+		System.out.println(sdf.format(date.getTime()));
+		System.out.println(date.getTime());
 	}
 	
 }
